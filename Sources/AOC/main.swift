@@ -27,8 +27,8 @@ Task {
     }
 
     args.part == 1 ?
-        print("Part 1 Solution: \(solution.part1(input: input))") :
-        print("Part 2 Solution: \(solution.part2(input: input))")
+        print("Solution (1): \(solution.part1(input: input))") :
+        print("Solution (2): \(solution.part2(input: input))")
 
     exit(0)
 }
