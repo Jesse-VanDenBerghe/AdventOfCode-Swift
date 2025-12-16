@@ -4,6 +4,8 @@ struct Day_1_Secret_Entrance: Solution {
     var day: Int { 1 }
     var year: Int { 2025 }
 
+    var testInputPath: String { "Sources/AOC/2025/Day 1 - Secret Entrance/2025_1.txt" }
+
     func part1(input: String) -> String {
         let lines = input.components(separatedBy: "\n")
 

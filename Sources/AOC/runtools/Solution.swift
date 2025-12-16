@@ -4,21 +4,27 @@ public protocol Solution: Sendable {
     var day: Int { get }
     var year: Int { get }
 
-    func part1(input: String) -> String
-    func part2(input: String) -> String
+    var testInputPath: String { get}
+
+    func part1(input: String) async -> String
+    func part2(input: String) async -> String
 }
 
 extension Solution {
     var testInput: String {
-        let url = URL(fileURLWithPath: "Sources/AOC/\(year)/day\(day)/\(year)_\(day).txt")
-
-        return try! String(contentsOf: url)
+        let url = URL(fileURLWithPath: testInputPath)
+        do {
+            return try String(contentsOf: url)
+        } catch {
+            fatalError("Could not load test input at path: \(testInputPath)")
+        }
     }
 }
 
 class SolutionRegistry {
     static let year2025: [Solution] = [
-        Day_1_Secret_Entrance()
+        Day_1_Secret_Entrance(),
+        Day_2_Gift_Shop(),
     ]
 
     static let solutions: [Solution] = year2025
