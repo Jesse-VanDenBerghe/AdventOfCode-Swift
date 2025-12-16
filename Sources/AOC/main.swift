@@ -3,8 +3,6 @@ import Foundation
 Task {
     let args = Args()
 
-    Console.clearConsole()
-
     print(
         "₊˚｡⋆❆⋆｡˚₊ Year \(args.year) Day \(args.day) Part \(args.part.map(String.init) ?? "all") \(args.isTestMode ? "[TEST MODE]" : "")₊˚｡⋆❆⋆｡˚₊"
     )

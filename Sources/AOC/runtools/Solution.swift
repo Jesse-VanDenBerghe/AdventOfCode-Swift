@@ -25,6 +25,7 @@ class SolutionRegistry {
     static let year2025: [Solution] = [
         Day_1_Secret_Entrance(),
         Day_2_Gift_Shop(),
+        Day_3_Lobby()
     ]
 
     static let solutions: [Solution] = year2025

@@ -4,7 +4,7 @@ struct Day_2_Gift_Shop: Solution {
     var day: Int { 2 }
     var year: Int { 2025 }
 
-    var testInputPath: String { "Sources/AOC/2025/Day 2 - Gift Shop/2025_2.txt" }
+    var testInputPath: String { "Inputs/2025_2.txt" }
 
     func part1(input: String) async -> String {
         var invalidIds: Set<Int> = []
