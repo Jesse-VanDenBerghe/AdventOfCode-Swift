@@ -3,7 +3,11 @@ import Foundation
 Task {
     let args = Args()
 
-    print("Running Year \(args.year) Day \(args.day) Part \(args.part) \(args.isTestMode ? "[TEST MODE]" : "")")
+    clearConsole()
+
+    print(
+        "₊˚｡⋆❆⋆｡˚₊ Year \(args.year) Day \(args.day) Part \(args.part.map(String.init) ?? "all") \(args.isTestMode ? "[TEST MODE]" : "")₊˚｡⋆❆⋆｡˚₊"
+    )
 
     let solution: (any Solution)? = SolutionRegistry.get(day: args.day, year: args.year)
 
@@ -26,9 +30,17 @@ Task {
         }
     }
 
-    args.part == 1 ?
-        print("Solution (1): \(solution.part1(input: input))") :
+    switch args.part {
+    case 1:
+        print("Solution (1): \(solution.part1(input: input))")
+    case 2:
         print("Solution (2): \(solution.part2(input: input))")
+    default:
+        let solutionPart1 = solution.part1(input: input)
+        let solutionPart2 = solution.part2(input: input)
+        print("Solution (1): \(solutionPart1)")
+        print("Solution (2): \(solutionPart2)")
+    }
 
     exit(0)
 }

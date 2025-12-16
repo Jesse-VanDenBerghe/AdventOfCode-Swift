@@ -1,7 +1,7 @@
 year ?= 2025
 day ?= 1
-part ?= 1
+part ?= nil
 test ?= false
 
 AOC:
-	swift run AOC $(year) $(day) $(part) $(test)
+	swift run AOC --year $(year) --day $(day) --part $(part) --test $(test)

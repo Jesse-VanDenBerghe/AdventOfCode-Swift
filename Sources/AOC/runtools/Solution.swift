@@ -17,9 +17,11 @@ extension Solution {
 }
 
 class SolutionRegistry {
-    static let solutions: [Solution] = [
-        AOC_1_2025()
+    static let year2025: [Solution] = [
+        Day_1_Secret_Entrance()
     ]
+
+    static let solutions: [Solution] = year2025
     
     static func get(day: Int, year: Int) -> Solution? {
         solutions.first { $0.day == day && $0.year == year }

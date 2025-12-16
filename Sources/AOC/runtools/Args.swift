@@ -1,16 +1,33 @@
 public struct Args {
-    public let day: Int
-    public let part: Int
-    public let year: Int
-    public let isTestMode: Bool
+    public var day: Int = 1
+    public var part: Int? = nil
+    public var year: Int = 2025
+    public var isTestMode: Bool = true
 
     public init() {
-        let args: Array<String>.SubSequence = CommandLine.arguments.dropFirst()
-        
-        self.year = Int(args[safe: 1] ?? "2024")!
-        self.day = Int(args[safe: 2] ?? "1")!
-        self.part =  Int(args[safe: 3] ?? "1")!
-        self.isTestMode = Bool(args[safe: 4] ?? "false")!
+        var args: ArraySlice<String> = CommandLine.arguments.dropFirst()
+
+        while args.count >= 2 {
+            let labelIndex = args.startIndex
+            let valueIndex = args.index(after: labelIndex)
+            let argLabel = args[labelIndex]
+            let argValue = args[valueIndex]
+
+            switch argLabel {
+            case "--day":
+                self.day = Int(argValue) ?? 1
+            case "--part":
+                self.part = Int(argValue)
+            case "--year":
+                self.year = Int(argValue) ?? 2025
+            case "--test":
+                self.isTestMode = Bool(argValue) ?? false
+            default:
+                break
+            }
+
+            args = args.dropFirst(2)
+        }
     }
 }
 

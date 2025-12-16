@@ -1,6 +1,6 @@
 import Foundation
 
-struct AOC_1_2025: Solution {
+struct Day_1_Secret_Entrance: Solution {
     var day: Int { 1 }
     var year: Int { 2025 }
 
@@ -12,7 +12,6 @@ struct AOC_1_2025: Solution {
 
         for line in lines {
             let _ = dail.rotate(rotation: line)
-            print(dail.at)
             if dail.at == 0 {
                 endedAtZero += 1
             }
@@ -49,7 +48,7 @@ class Dail {
         let startNumber = at
         let rotationAmount = at + direction.multiplier * amount
 
-        let wrapped = ((rotationAmount % Dail.MAX_AT) + Dail.MAX_AT) % Dail.MAX_AT
+        let wrapped = rotationAmount.mod(Dail.MAX_AT)
         at = wrapped
 
         var passedZero = abs(Int(floor(Double(rotationAmount) / Double(Dail.MAX_AT))))
